@@ -5,24 +5,9 @@
       "type": "motoko"
     },
     "ConflictManager_frontend": {
-      "dependencies": [
-        "ConflictManager_backend"
-      ],
-      "source": [
-        "src/ConflictManager_frontend/assets"
-      ],
-      "type": "assets"
-    },
-    "internet_identity": {
-      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
-      "frontend": {},
-      "remote": {
-        "id": {
-          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
-        }
-      },
-      "type": "custom",
-      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+      "source": ["src/ConflictManager_frontend/frontend"],  
+      "type": "assets", 
+      "dependencies": ["ConflictManager_backend"]
     }
   },
   "defaults": {

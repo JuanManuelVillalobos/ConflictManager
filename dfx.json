@@ -1,13 +1,26 @@
 {
   "canisters": {
-    "ConflictManager_backend": {
+    "backend": {
       "main": "src/ConflictManager_backend/main.mo",
       "type": "motoko"
     },
-    "ConflictManager_frontend": {
-      "source": ["src/ConflictManager_frontend/frontend"],  
-      "type": "assets", 
-      "dependencies": ["ConflictManager_backend"]
+  "internet_identity": {
+      "type": "custom",
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
+      "init_arg": "(opt record { captcha_config = opt record { max_unsolved_captchas= 50:nat64; captcha_trigger = variant {Static = variant {CaptchaDisabled}}}})",
+      "frontend" : {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      }
+    },
+    "frontend": {
+      "type": "assets",
+      "source": [
+        "src/ConflictManager_frontend/out"
+      ]
     }
   },
   "defaults": {

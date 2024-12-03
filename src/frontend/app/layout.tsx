@@ -1,5 +1,6 @@
 import "@/app/globals.css"
 import { Inter } from "next/font/google"
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -17,7 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Add DFINITY's Internet Identity script */}
-        <script src="https://identity.ic0.app/auth.js" />
+        <Script
+          src="https://identity.ic0.app/auth.js"
+          strategy="afterInteractive" // Load the script after the page is interactive
+        />
       </head>
       <body className={inter.className}>{children}</body>
     </html>

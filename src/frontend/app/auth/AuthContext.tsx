@@ -1,9 +1,10 @@
 // context/AuthContext.tsx
 "use client"
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { AuthClient } from '@dfinity/auth-client';
 import { Principal } from '@dfinity/principal';
+
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -12,9 +13,14 @@ interface AuthContextType {
   logout: () => void;
 }
 
+// Define the type for props, including the 'children' prop
+interface AuthProviderProps {
+  children: ReactNode;  // ReactNode represents any valid React child
+}
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider: React.FC = ({ children }) => {
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [principal, setPrincipal] = useState<Principal | null>(null);
   const [authClient, setAuthClient] = useState<AuthClient | null>(null);

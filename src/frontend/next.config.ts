@@ -1,6 +1,7 @@
 import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  distDir: 'out',
   reactStrictMode: true,
   webpack(config, { isServer }) {
     if (!isServer) {
@@ -14,5 +15,7 @@ const nextConfig: NextConfig = {
     return config;
   },
 };
+
+
 
 export default nextConfig;

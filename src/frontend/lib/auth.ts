@@ -1,5 +1,4 @@
 import { AuthClient } from "@dfinity/auth-client"
-import { HttpAgent } from "@dfinity/agent"
 
 // Initialize auth client
 export async function initAuth(): Promise<AuthClient> {
@@ -8,19 +7,6 @@ export async function initAuth(): Promise<AuthClient> {
       disableIdle: true,
     },
   })
-}
-
-// Initialize agent
-export async function initAgent(authClient: AuthClient) {
-  const agent = new HttpAgent({
-    host: "https://identity.ic0.app",
-  })
-
-  if (authClient.isAuthenticated()) {
-    agent.setIdentity(await authClient.getIdentity())
-  }
-
-  return agent
 }
 
 // Login function

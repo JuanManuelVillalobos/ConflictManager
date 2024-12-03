@@ -42,7 +42,7 @@ export default function DashboardLayout({
                 Principal ID: {principal.slice(0, 8)}...
               </span>
             )}
-            <Button onClick={logout}>Logout</Button>
+            <Button onClick={logout}>Cerrar Sesión</Button>
           </div>
         </div>
       </div>
